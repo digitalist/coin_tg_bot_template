@@ -29,11 +29,12 @@
 ### реализованные команды
 
 в порядке применения:
-/reg ADDRESS - регистрирует адрес для user_id
-/tokens - выдает список id токенов (пока грубо без тикеров и т.д.) 
-/want AMOUNT - прислать waves если у бота есть AMOUNT
-/want AMOUNT token - прислать AMOUNT токена, если у бота хватает
-/help
+
+- /reg ADDRESS - регистрирует адрес для user_id
+- /tokens - выдает список id токенов (пока грубо без тикеров и т.д.) 
+- /want AMOUNT - прислать waves если у бота есть AMOUNT
+- /want AMOUNT token - прислать AMOUNT токена, если у бота хватает
+- /help
 
 - все команды лежат в src.commands
 
