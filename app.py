@@ -1,4 +1,15 @@
 
+
+# import socket
+# import socks
+
+#
+#def set_default_proxy(proxy_type=None, addr=None, port=None, rdns=True,
+#                      username=None, password=None):
+# socks.set_default_proxy(socks.SOCKS5, addr="178.62.241.19", 9050)
+# socket.socket = socks.socksocket
+
+import sys
 import asyncio
 import telepot
 import logging
@@ -16,6 +27,10 @@ from config import CONFIG
 
 reloader = LiveReloader()
 reloader.start_watcher_thread()
+
+
+
+
 
 
 
@@ -61,7 +76,29 @@ bot = telepot.aio.DelegatorBot(TOKEN, [
 
 
 loop = asyncio.get_event_loop()
-loop.create_task(MessageLoop(bot).run_forever())
+
+
+def custom_exception_handler(loop, context):
+    # first, handle with default handler
+    # loop.default_exception_handler(context)
+    loop.stop()
+    exception = context.get('exception')
+    print('--------------------------')
+    # if isinstance(exception, Exception):
+    print(context)
+    sys.exit()
+    loop.stop()
+
+loop.set_exception_handler(custom_exception_handler)
+
+bot_message_loop = MessageLoop(bot)
+# bot_message_loop.set_exception_handler(custom_exception_handler)
+
+# def kek():
+#     raise Exception
+
+loop.create_task(bot_message_loop.run_forever())
+# loop.create_task(kek)
 print('Listening ...')
 
 loop.run_forever()
