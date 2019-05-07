@@ -1,7 +1,17 @@
 
 # Waves Proof of Concept Telegram bot
 
+### для обхода ебаного роскомнадзора:
+```
+# run_socks_sample.sh
 
+#!/bin/bash
+cd $PWD
+sudo apt install dante-client
+SOCKS5_SERVER=host:port SOCKS_USERNAME=example SOCKS_PASSWORD=password socksify python app.py
+
+    
+```
 ### архитектурно:
 
 асинхронный бот с диспетчером/мапером приходящих команд в callable объекты (похоже на паттерн Команда с Фабрикой)
