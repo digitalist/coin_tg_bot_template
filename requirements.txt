@@ -14,7 +14,7 @@ pyblake2==1.1.2
 pysha3==1.0.2
 python-axolotl-curve25519==0.4.1.post2
 PyWaves==0.8.22.post1
-PyYAML==5.1
+PyYAML==5.4
 requests==2.21.0
 telepot==12.7
 urllib3==1.25.2
